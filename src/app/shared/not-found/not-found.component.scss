@@ -1,0 +1,51 @@
+.not-found {
+  height: calc(100vh - 80px);
+  background: url(../../../assets/images/not-found/bg-not-found.svg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  .container {
+    z-index: 9999;
+  }
+  .logo {
+    margin-bottom: 40px;
+  }
+  .oops {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48.41px;
+  }
+  .page-not {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38.73px;
+    color:#009247;
+    display: block;
+  }
+  .desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 4%;
+    color: #1F263E;
+
+  }
+  button {
+    border: none;
+    outline: none;
+    z-index: 9999;
+    width: 280px;
+    height: 60px;
+    border-radius: 8px;
+    background: #009247;
+    color: #fff;
+    transition: .2s;
+    &:hover {
+      background: #02a14f;
+    }
+  }
+  .man-not-found {
+    position: absolute;
+    bottom: 25px;
+    right: 15px;
+  }
+}

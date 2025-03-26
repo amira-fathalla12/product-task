@@ -1,0 +1,56 @@
+.auth-sec {
+  min-height: 100vh;
+  background: url(../../../../../assets/images/auth/background-auth.png) no-repeat center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .auth {
+    background-color: #fff;
+    border-radius: 16px;
+    .upload {
+      transform: translateX(-19%);
+      ngx-dropzone {
+        width: 180px;
+        transform: translateX(50%);
+        ::ng-deep ngx-dropzone-image-preview img {
+          min-width: 160px !important;
+          min-height: 160px !important;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+        ::ng-deep ngx-dropzone-image-preview ngx-dropzone-remove-badge {
+          top: -2px !important;
+          right: 22px !important;
+        }
+      }
+    }
+    .input-group {
+      margin-bottom: 20px !important;
+      .eye-pass i {
+        z-index: 99;
+        cursor: pointer;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    button {
+      cursor: pointer;
+      padding: 11px;
+      color: #fff;
+      border: none;
+      transition: 0.3s;
+      border-radius: 8px;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .upload {
+    margin-bottom: 35px !important;
+  }
+}

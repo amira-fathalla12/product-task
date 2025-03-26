@@ -1,0 +1,57 @@
+.table-responsive {
+  .filter-container {
+    margin-bottom: 15px;
+    ::ng-deep mat-form-field {
+      display: block;
+      .mat-mdc-form-field-bottom-align {
+        display: none;
+      }
+    }
+    .clear-btn {
+      background-color: #ececec;
+      color: #777;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        background-color: #e2e5eb;
+      }
+    }
+  }
+  .table {
+    border-radius: 10px;
+    overflow: hidden;
+    --bs-table-bg: transparent !important;
+    .table>:not(caption)>*>* {
+      border-bottom-width: 0
+    }
+    thead {
+      th {
+        background-color: #E2E5EB;
+      }
+    }
+    .bg-light td {
+      background: #F8F9FB !important;
+    }
+    .bg-white td {
+      background-color: #fff !important;
+    }
+    td, th {
+      padding: 10px;
+    }
+    .recipe-image {
+      width: 6rem;
+      height: 4rem;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .show-btn {
+      background-color: #009247;
+      color: #fff !important;
+    }
+  }
+}

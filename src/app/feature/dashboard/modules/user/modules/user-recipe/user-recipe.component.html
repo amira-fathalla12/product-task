@@ -1,0 +1,96 @@
+<section class="recipes me-4">
+  <app-header headerTitle="Recipes"></app-header>
+  <div class="details">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Recipes Table Details</h3>
+        <p>Recipes Table Details</p>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <div class="filter-container">
+      <div class="row">
+      <!-- input search -->
+        <div class="col-md-12 col-lg-7">
+          <mat-form-field class="filter-input w-100 mt-4 mb-4 m-lg-0" >
+            <mat-label>Filter</mat-label>
+            <input type="text" matInput [(ngModel)]="searchVal" (keyup)="getAllRecipes()" placeholder="Ex. Pizza">
+          </mat-form-field>
+        </div>
+        <!-- Tag ID (Dropdown) -->
+        <div class="col-md-5 col-lg-2">
+          <mat-form-field class="mb-4 m-lg-0">
+            <mat-label>Tag</mat-label>
+            <mat-select [(ngModel)]="tagId" (selectionChange)="getAllRecipes()">
+              <mat-option [value]="0">All</mat-option>
+              <mat-option *ngFor="let tag of tagList" [value]="tag.id">{{ tag.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- Category ID (Dropdown) -->
+        <div class="col-md-5 col-lg-2">
+          <mat-form-field class="mb-4 m-lg-0">
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="catId" (selectionChange)="getAllRecipes()">
+              <mat-option [value]="0">All</mat-option>
+              <mat-option *ngFor="let cat of categoriesList" [value]="cat.id">{{ cat.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2 col-lg-1 d-flex align-items-center">
+          <div class="d-none d-md-block">
+            <mat-icon class="clear-btn" (click)="clearFilter()">clear</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Item Name</th>
+          <th scope="col">Image</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
+          <th scope="col">Tag</th>
+          <th scope="col">Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recipe of tableResponse?.data; let isEven = even" [ngClass]="isEven ? 'bg-white' : 'bg-light'">
+          <td>{{recipe.name}}</td>
+          <td>
+            <img class="recipe-image" [src]="recipe.imagePath ? recipe.imagePath : '../../../../../../../assets/images/logo/sidebar-logo.svg'" alt="">
+            <ng-container *ngIf="recipe.imagePath === null">
+              <img width="100px" class="rounded-2" src="assets/sidebar-logo.svg" alt="recipe image">
+            </ng-container>
+          </td>
+          <td>{{recipe.price}}</td>
+          <td>{{ recipe.description.length > 20 ? (recipe.description | slice:0:20) + ' ...' : recipe.description }}</td>
+          <td>{{recipe.tag.name}}</td>
+          <td>
+            <ng-container *ngFor="let item of recipe.category; let last = last">
+              <span class="category">{{ item.name }}{{ last ? '' : ', ' }}</span>
+            </ng-container>
+          </td>
+          <td>
+            <button mat-raised-button class="show-btn" (click)="openViewDialog(recipe)">
+              <mat-icon>visibility</mat-icon>
+              <span>View</span>
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="tableResponse?.totalNumberOfRecords == 0" >
+          <td colspan="7" class="text-center">
+            <img src="assets/images/not-found/not-found-person.svg" alt="">
+            <p class="mt-3 lead">There is no recipe with this name</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="tableResponse?.totalNumberOfRecords" (page)="handlePageEvent($event)"
+    [pageSize]="pageSize" [pageIndex]="pageNumber" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+  </mat-paginator>
+  </div>
+</section>

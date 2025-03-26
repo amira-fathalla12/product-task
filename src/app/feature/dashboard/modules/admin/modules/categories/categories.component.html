@@ -1,0 +1,67 @@
+<section class="categories me-4">
+  <app-header headerTitle="Categories"></app-header>
+  <div class="details">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Categories Table Details</h3>
+        <p>Categories Table Details</p>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-success" (click)="openDialog(null, 'Add')">Add New Category</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <!-- input search -->
+    <mat-form-field class="filter-input">
+      <mat-label>Filter</mat-label>
+      <input type="text" matInput [(ngModel)]="searchVal" (keyup)="getAllCategories()" placeholder="Ex. Pizza">
+    </mat-form-field>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Creation Date</th>
+          <th scope="col">Modification Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories; let isEven = even" [ngClass]="isEven ? 'bg-white' : 'bg-light'">
+          <td>{{category.name}}</td>
+          <td>{{category.creationDate | date: 'MM/dd/yyyy'}}</td>
+          <td>{{category.modificationDate | date: 'MM/dd/yyyy'}}</td>
+          <td>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button class="text-success" mat-menu-item (click)="openDialog(category, 'View')">
+                <mat-icon class="text-success">visibility</mat-icon>
+                <span>View</span>
+              </button>
+              <button class="text-primary" mat-menu-item (click)="openDialog(category, 'Update')">
+                <mat-icon class="text-primary">edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button class="text-danger" mat-menu-item (click)="openDeleteDialog(category)">
+                <mat-icon class="text-danger">delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </td>
+        </tr>
+        <tr *ngIf="categories.length == 0" >
+          <td colspan="4" class="text-center">
+            <img src="../../../../../../../assets/images/not-found/not-found-person.svg" alt="">
+            <p class="mt-3 lead">There is no category with this name</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="tableResponse?.totalNumberOfRecords" (page)="handlePageEvent($event)"
+    [pageSize]="pageSize" [pageIndex]="pageNumber" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+  </mat-paginator>
+  </div>
+</section>

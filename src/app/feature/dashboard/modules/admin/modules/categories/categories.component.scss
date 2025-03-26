@@ -1,0 +1,27 @@
+.table-responsive {
+  mat-form-field {
+    width: 100%;
+  }
+  .table {
+    border-radius: 10px;
+    overflow: hidden;
+    --bs-table-bg: transparent !important;
+    .table>:not(caption)>*>* {
+      border-bottom-width: 0
+    }
+    thead {
+      th {
+        background-color: #E2E5EB;
+      }
+    }
+    .bg-light td {
+      background: #F8F9FB !important;
+    }
+    .bg-white td {
+      background-color: #fff !important;
+    }
+    td, th {
+      padding: 10px;
+    }
+  }
+}

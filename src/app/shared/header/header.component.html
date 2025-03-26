@@ -1,0 +1,19 @@
+<div class="row header-row align-items-center px-3 py-3">
+  <div class="col-md-8">
+    <div class="categories-header ps-md-4 pt-sm-3">
+      <h2 class="text-start">
+        <span class="wave-container">
+          <span *ngFor="let char of waveUsername; let i = index" class="wave-char"
+            [style.animationDelay]="i * 0.1 + 's'">
+            {{ char }}
+          </span>
+        </span>
+      </h2>
+      <p>You can now add your items that any user can order it from the Application and you can edit</p>
+    </div>
+  </div>
+  <div class="col-md-4 text-end">
+    <img class="categories-image" src="assets/images/header/header.svg" alt="header picture">
+  </div>
+</div>
+

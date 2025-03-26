@@ -1,0 +1,32 @@
+::ng-deep .mat-mdc-dialog-container {
+  width: 30rem !important;
+  mat-form-field {
+    width: 100%;
+  }
+  .mat-mdc-dialog-actions {
+    justify-content: end;
+  }
+}
+.title {
+  mat-icon {
+    cursor: pointer;
+    color: #CC0000;
+    margin: 1.2rem 1.4rem;
+    border: 1px solid #CC0000;
+    height: 27px;
+    width: 27px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 19px;
+    border-radius: 50%;
+    transition: 0.3s;
+    &:hover {
+      color: #fff;
+      background-color: #CC0000;
+    }
+  }
+}
+
+::ng-deep --mdc-filled-text-field-focus-active-indicator-color {
+    color: #009247;
+}

@@ -1,0 +1,9 @@
+<section class="delete" mat-dialog-content>
+  <mat-icon class="closeIcon" (click)="closeDialog()">close</mat-icon>
+  <img src="assets/images/not-found/not-found-person.svg" alt="">
+  <h4 class="delete-title">Delete {{data.cat.name}} {{data.type}} ?</h4>
+  <p class="delete-desc">are you sure you want to delete {{data.cat.name}} {{data.type}} ? if you are sure just click on delete it</p>
+  <div class="text-end">
+    <button (click)="deleteItem()">Delete this item</button>
+  </div>
+</section>

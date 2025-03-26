@@ -1,0 +1,17 @@
+<div class="title d-flex justify-content-between align-items-center">
+  <h2 mat-dialog-title class="fw-bold">{{data.type}} Category</h2>
+  <mat-icon (click)="closeDialog()">close</mat-icon>
+</div>
+
+<div mat-dialog-content>
+  <mat-form-field class="mt-5">
+    <input
+    matInput
+    [(ngModel)]="temporaryData.category.name"
+    placeholder="Category Name"
+    [disabled]="data.type === 'View'">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="button main-btn" (click)="closeDialog()" [hidden]="data.type === 'View'">Save</button>
+</div>

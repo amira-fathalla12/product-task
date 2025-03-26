@@ -1,0 +1,31 @@
+<section class="home m-4">
+    <div class="row header-row align-items-center justify-content-between">
+      <div class="col-md-8">
+        <div class="home-header">
+          <h2 class="text-start">Welcome <span class="wave-container">
+              <span *ngFor="let char of waveUsername; let i = index" class="wave-char"
+                [style.animationDelay]="i * 0.1 + 's'">
+                {{ char }}
+              </span>
+            </span>
+          </h2>
+          <p>This is a welcoming screen for the entry of the application , you can now see the options</p>
+        </div>
+      </div>
+      <div class="col-md-4 home-image text-end">
+        <img class="w-75" src="../../../assets/images/home/avatar.svg" alt="Home picture">
+      </div>
+    </div>
+    <div class="row row-section justify-content-between">
+      <div class="col-md-8">
+        <h4>Fill the <span class="main-color">Recipes</span> !</h4>
+        <p>you can now fill the meals easily using the table and form , click here and sill it with the table !</p>
+      </div>
+      <div class="col-md-4 d-flex align-items-center justify-content-end">
+        <button [routerLink]="role == 'SystemUser' ? '/dashboard/user/user-recipe' : '/dashboard/admin/recipes'"
+          class="button main-btn d-flex justify-content-center gap-3 align-items-center py-2 px-sm-3">
+          <span>Fill Recipes</span>
+          <i class="fa fa-arrow-right"></i></button>
+      </div>
+    </div>
+</section>

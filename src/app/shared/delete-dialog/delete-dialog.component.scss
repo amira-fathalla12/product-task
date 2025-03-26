@@ -1,0 +1,47 @@
+.delete {
+  text-align: center;
+  position: relative;
+  .closeIcon {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    cursor: pointer;
+    color: #CC0000;
+    margin: 1.2rem 1.4rem;
+    border: 1px solid #CC0000;
+    height: 27px;
+    width: 27px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 19px;
+    border-radius: 50%;
+    transition: 0.3s;
+    &:hover {
+      color: #fff;
+      background-color: #CC0000;
+    }
+  }
+  img {
+    margin: 35px 0;
+  }
+  .delete-title {
+    color: #333;
+  }
+  .delete-desc {
+    width: 80%;
+    margin: 10px auto;
+  }
+  button {
+    background: none;
+    padding: 7px 20px;
+    border: 1px solid #CC0000;
+    color: #CC0000;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.2s;
+    &:hover {
+      background-color: #CC0000;
+      color: #fff;
+    }
+}
+}

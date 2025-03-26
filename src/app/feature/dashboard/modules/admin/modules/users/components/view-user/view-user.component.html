@@ -1,0 +1,13 @@
+<section class="view-user" mat-dialog-content>
+  <div class="d-flex justify-content-between align-items-center">
+    <h3 class="view-title">{{data.user.userName}} </h3>
+    <mat-icon class="closeIcon" (click)="closeDialog()">close</mat-icon>
+  </div>
+  <img [src]="data.user.imagePath" alt="">
+  <p>Email: <strong>{{data.user.email}}</strong></p>
+  <p>Phone: <strong>{{data.user.phoneNumber}}</strong></p>
+  <p>Country: <strong>{{data.user.country}}</strong></p>
+  <p>Role: <strong>{{data.user.group.name}}</strong></p>
+  <p>Creation date: <strong>{{data.user.creationDate | date: 'dd/MM/yyyy'}}</strong></p>
+  <p>Modification date: <strong>{{data.user.modificationDate | date: 'dd/MM/yyyy'}}</strong></p>
+</section>

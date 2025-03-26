@@ -1,0 +1,53 @@
+.row-section {
+  padding: 35px;
+  background-color: #F0FFEF;
+  border-radius: 35px;
+}
+
+form {
+  width: 50%;
+  margin: 15px auto;
+  mat-form-field {
+    display:  block !important;
+    margin: 20px 0 10px;
+  }
+  mat-error {
+    width: 100%;
+    margin-top: 5px;
+  }
+  ngx-dropzone-label{
+    i {
+      font-size: 30px;
+    }
+    .upload-desc {
+      display: block;
+      .active {
+        color: #4AA35A;
+      }
+    }
+  }
+  .btns-container {
+    border-top: 3px solid #F7F7F7;
+    padding: 35px 0;
+    button {
+      padding: 15px 50px;
+      border: 1px solid #4AA35A;
+      outline: none;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .save {
+      background-color: #4AA35A;
+      color: #fff;
+    }
+    .cancel {
+      background: transparent;
+      color: #4AA35A;
+      &:hover {
+        background-color: #4AA35A;
+        color: #fff;
+      }
+    }
+  }
+}

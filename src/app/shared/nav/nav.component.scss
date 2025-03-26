@@ -1,0 +1,32 @@
+nav {
+  margin: 15px;
+  padding: 5px 75px;
+  background-color: #F8F9FB;
+  border-radius: 16px;
+  .nav-link {
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  .dropdown-menu {
+    width: 12rem;
+    li a {
+      color: #555;
+      border-left: 4px solid #FFF;
+      margin-bottom: 7px;
+      transition: 0.3s;
+      &:hover {
+        padding-left: 1.4rem;
+        background-color: #eee;
+        color: #111;
+        border-left: 4px solid #4AA35A;
+      }
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}

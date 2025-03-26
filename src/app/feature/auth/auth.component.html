@@ -1,0 +1,46 @@
+<section class="auth-sec">
+  <div class="container">
+    <div class="row">
+      <div class="auth col-xs-12 col-lg-6 m-auto p-4 px-5">
+        <img src="../../assets/images/logo/logo-auth.svg" alt="" class="d-block m-auto mb-2">
+        <h2>Login</h2>
+        <p class="grey-color">Welcome Back! Please enter your details</p>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-envelope grey-color"></i></span>
+            <input type="email" class="form-control" placeholder="Enter your E-mail" formControlName="email" aria-label="email"
+            >
+          </div>
+          <ng-container *ngIf="email?.dirty || email?.touched">
+            <p class="text-danger" *ngIf="email?.errors?.['required']">The email is required</p>
+            <p class="text-danger" *ngIf="email?.errors?.['email']">
+              Email is not valid</p>
+          </ng-container>
+          <div class="input-group flex-nowrap position-relative">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock grey-color"></i></span>
+            <input [type]="showPassword? 'text' : 'password'" class="form-control" placeholder="Password" formControlName="password">
+            <span class="eye-pass" (click)="toggleShowPass()">
+              <i
+              class="fa-solid position-absolute grey-color"
+              [class]="!showPassword ? 'fa-eye' : 'fa-eye-slash'"
+              >
+              </i>
+            </span>
+          </div>
+          <ng-container *ngIf="password?.dirty || password?.touched">
+            <p class="text-danger" *ngIf="password?.errors?.['required']">The password is required</p>
+            <p class="text-danger" *ngIf="password?.errors?.['pattern']">
+              least 8 characters, one
+              special character, one lowercase letter, one uppercase letter and one digit.
+            </p>
+          </ng-container>
+          <div class="d-flex justify-content-between w-100 my-3">
+            <a class="grey-color-2 text-decoration-none" routerLink="/auth/register">Register Now?</a>
+            <a class="main-color text-decoration-none" routerLink="/auth/request-password">Forgot Password?</a>
+          </div>
+          <button class="bg-main-color w-100" type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<i class="fa-solid fa-bars" (click)="showSideBar()"></i>
+<section class="sidebar pt-5">
+  <i class="fa-solid fa-xmark" (click)="hideSideBar()"></i>
+  <img class="logo" src="../../../assets/images/logo/sidebar-logo.svg" alt="">
+  <ul class="links list-unstyled mt-3">
+    <ng-container *ngFor="let item of menu">
+      <li *ngIf="item.isActive">
+        <a [routerLink]="'/' + item.link" routerLinkActive="active">
+          <img [src]='"../../../assets/icons/" + item.icon + ".svg"' alt="">
+          <span>{{item.text}}</span>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</section>

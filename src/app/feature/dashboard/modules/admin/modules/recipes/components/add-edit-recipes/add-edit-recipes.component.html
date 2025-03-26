@@ -1,0 +1,85 @@
+<div class="repies">
+  <div class="row row-section justify-content-between">
+    <div class="col-md-8">
+      <h4>Fill the <span class="main-color">Recipes</span> !</h4>
+      <p>you can now fill the meals easily using the table and form , <br /> click here and sill it with the table !</p>
+    </div>
+    <div class="col-md-4 d-flex align-items-center justify-content-end">
+      <button routerLink="/dashboard/admin/recipes"
+        class="button main-btn d-flex justify-content-center gap-3 align-items-center py-2 px-sm-3">
+        <span>Fill Recipes</span>
+        <i class="fa fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <mat-form-field class="full-width">
+      <mat-label>Recipe Name</mat-label>
+      <input matInput formControlName="name" type="text">
+      <mat-error *ngIf="recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched">
+        Name is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Description -->
+    <mat-form-field class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error *ngIf="recipeForm.get('description')?.invalid && recipeForm.get('description')?.touched">
+        Description must be at least 10 characters.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Price -->
+    <mat-form-field class="full-width">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number">
+      <mat-error *ngIf="recipeForm.get('price')?.invalid && recipeForm.get('price')?.touched">
+        Price must be a positive number.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Tag ID (Dropdown) -->
+    <mat-form-field class="full-width">
+      <mat-label>Tag</mat-label>
+      <mat-select formControlName="tagId">
+        <mat-option *ngFor="let tag of tagList" [value]="tag.id">{{ tag.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="recipeForm.get('tagId')?.invalid && recipeForm.get('tagId')?.touched">
+        Tag is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Category ID (Dropdown) -->
+    <mat-form-field class="full-width">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="categoriesIds" multiple>
+        <mat-option *ngFor="let cat of categoriesList" [value]="cat.id">{{ cat.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="recipeForm.get('categoriesIds')?.invalid && recipeForm.get('categoriesIds')?.touched">
+        Category is required.
+      </mat-error>
+    </mat-form-field>
+
+    <ngx-dropzone class="text-center overflow-hidden" (change)="onSelect($event)">
+      <ngx-dropzone-label>
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span class="upload-desc">Drag & Drop or <span class="active">Choose a Item Image</span> to Upload</span>
+      </ngx-dropzone-label>
+
+      <!-- Show Existing Image -->
+      <ngx-dropzone-image-preview *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label></ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+
+    <!-- Action Buttons -->
+    <div class="btns-container d-flex justify-content-between mt-4">
+      <button class="cancel" mat-raised-button routerLink="/dashboard/admin/recipes">Cancel</button>
+      <button class="save" mat-raised-button type="submit">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

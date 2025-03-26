@@ -1,0 +1,123 @@
+.fa-bars {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 2rem;
+  color: #777;
+}
+.sidebar {
+  transition: 0.7s;
+  background-color: #1F263E;
+  min-height: 100%;
+  width: 90%;
+  height: 100vh;
+  border-radius: 0 58px 0 0;
+  position: relative;
+  .fa-xmark {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+  }
+  .links li a {
+    display: block;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 15px 0 15px 35px;
+    color: #fff !important;
+    margin: 15px auto;
+    border-left: 4px solid #1F263E;
+    transition: 0.3s;
+    &:hover,
+    &.active {
+      background-color: #00924D1A;
+      border-left: 4px solid #009247;
+    }
+    &:hover:not(.active) {
+      padding-left: 3rem;
+    }
+      img {
+        margin-right: 1rem;
+      }
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    .logo {
+      width: 6rem;
+    }
+    .links li a {
+      color: #fff !important;
+      padding: 15px 0 15px 25px;
+      font-size: 14px;
+      &:hover:not(.active) {
+        padding-left: 2rem;
+        color: #fff !important;
+        span {
+          display: none;
+        }
+      }
+      img {
+        width: 18px;
+        margin-right: .5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 70%;
+    .links li a span {
+      display: none;
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .fa-bars {
+    display: block;
+  }
+  .sidebar {
+    display: block;
+    position: absolute;
+    width: 50%;
+    z-index: 99;
+    left: -100%;
+    .fa-xmark {
+      display: block;
+    }
+    .logo {
+      width: 5rem;
+    }
+    .links li a {
+      padding: 15px 0 15px 25px;
+      color: #fff;
+      &:hover:not(.active) {
+        padding-left: 2rem;
+        color: #fff;
+      }
+      span {
+        display: inline-block;
+        color: #fff;
+      }
+    }
+    .links li:hover a {
+      color: #fff;
+      span {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.active {
+  left: 0;
+}
