@@ -61,9 +61,4 @@ Then open `http://localhost:4200/` in your browser.
 ```bash
 ng build --configuration production
 ```
----
 
-### 📞 Contact
-For any inquiries, reach out:
-- **GitHub:** https://github.com/YOUSSEF-R-KAMEL?tab=repositories
-- **Email:** se.youssefrafat@gmail.com
